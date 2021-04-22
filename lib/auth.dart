@@ -148,15 +148,13 @@ Future signin(String email, String password, BuildContext context) async {
               entryAnimation: EntryAnimation.RIGHT,
               onOkButtonPressed: () {
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => tasks()));
+                    MaterialPageRoute(builder: (context) => MainHome()));
               },
               onCancelButtonPressed: () {
                 signOutUser().whenComplete(() => Navigator.pop(context));
               },
             ));
     return _userFromFirebaseUser(user);
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => tasks()));
   } catch (e) {
     switch (e.code) {
       case 'ERROR_INVALID_EMAIL':
